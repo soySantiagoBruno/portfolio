@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { WordpressPost } from '../models/wordpress-post';
 
 @Injectable({
   providedIn: 'root'
@@ -11,8 +12,8 @@ export class ProyectosService {
 
   constructor(private http: HttpClient) { }
 
-  getPosts(): Observable<any> {
-    return this.http.get(`${this.baseUrl}/posts`)
+  getPosts(): Observable<WordpressPost[]> {
+    return this.http.get<WordpressPost[]>(`${this.baseUrl}/posts`)
   }
   
 }
