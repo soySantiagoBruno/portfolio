@@ -40,3 +40,56 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+
+# Node modules
+node_modules/
+
+# Angular build outputs
+/dist/
+/out-tsc/
+/.angular/
+
+# IDEs y editores
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Logs
+*.log
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+
+# Compilación TypeScript
+*.js
+*.js.map
+
+# Archivos de ambiente
+.env
+.env.*
+
+# Cache de npm y otras herramientas
+.npm/
+.npmrc
+.yarn-integrity
+.package-lock.json
+.pnpm-debug.log
+
+# Angular Cache
+.angular/cache/
+
+# Coverage de tests
+/coverage/
+
+# Archivos generados por testing
+/test.ts
+
+# Optional: archivos del entorno de Firebase si no querés subirlos
+.firebase/
+.firebaserc
+
+# Otros temporales
+tmp/
+temp/
