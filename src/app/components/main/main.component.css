@@ -1,0 +1,31 @@
+.navbar { 
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+}
+    
+
+.main-content{
+    display: grid;
+    grid-template-rows: auto 1fr; /* nav ocupa lo que necesite, contenido ocupa el resto */
+
+    background-image: url(/main-background.gif);
+    width: 100%;
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+
+.contenido-inicio{
+    height: 100%;
+    padding: 4rem 2rem;
+    background-color:#00800087;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.inicio-informacion{
+    width: 45%;
+    margin: auto 0px
+}

@@ -1,1 +1,45 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+  padding: 0px;
+  margin: 0px;
+  font-family: 'Roboto', sans-serif;
+}
+h1,h2,.project-title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  color: #FFFFFF;
+}
+
+p, .project-description {
+  font-family: 'Roboto', sans-serif;
+  color: #B3B3B3 !important;
+  font-weight: 400;
+}
+
+.nav-link{
+  color: #B3B3B3 !important;
+}
+
+.nav-link.active{
+  font-weight: bold;
+  color: white !important;
+}
+
+/* Estilos netfix */
+/* styles.css o tu archivo SCSS */
+.bg-netflix {
+  background-color: #141414 !important;
+}
+
+.text-netflix-red {
+  color: #e50914 !important;
+}
+
+.btn-netflix {
+  background-color: #e50914;
+  color: white;
+  border: none;
+}
+
+.btn-netflix:hover {
+  background-color: #f40612;
+}
