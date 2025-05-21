@@ -1,0 +1,29 @@
+ 
+  
+  <!-- Carrusel proyectos-->
+  <div class="container-fluid position-relative" style="margin-top: -2rem;">
+    <h2>Algunos de mis proyectos: </h2>
+    <div #cardContainer class="d-flex flex-row overflow-auto py-3" style="scroll-behavior: smooth; gap: 1rem;">
+      
+        <!-- Tarjetas del carrusel -->
+        <div class="card" *ngFor="let proyecto of proyectos">
+          <div class="card-img-container position-relative">
+            <img [src]="proyecto.image" class="card-img-top" alt="Card image">
+            <h5 *ngIf="proyecto.title" class="card-title position-absolute">{{ proyecto.title }}</h5>
+          </div>
+        </div>
+      </div>
+    
+  
+  
+  
+      <!-- Botones superpuestos -->
+      <button (click)="scrollLeft()" class="position-absolute top-50 start-10 translate-middle-y" style="z-index: 10; border: none; background: none;">
+        <i class="bi bi-caret-left"></i>
+      </button>
+      <button (click)="scrollRight()" class="position-absolute top-50 end-0 translate-middle-y" style="z-index: 10;border: none; background: none;">
+        <i class="bi bi-caret-right"></i>
+      </button>
+  
+    
+  </div>  

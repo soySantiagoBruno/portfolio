@@ -1,0 +1,34 @@
+.card{
+    min-width: 18rem !important;
+}
+
+
+/* Contenedor de la imagen */
+.card-img-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  /* Imagen de la tarjeta */
+  .card-img-top {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  
+  /* Título superpuesto */
+  .card-title {
+    bottom: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
+    background-color: #e50914;
+    color: white;
+    padding: 3px;
+    margin-bottom: 0px;
+
+    max-width: 80%; /* Ancho menor */
+    text-align: center;
+    font-size: 1rem;
+  }

@@ -1,0 +1,56 @@
+.navbar { 
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+}
+    
+
+.main-content {
+    display: grid;
+    grid-template-rows: auto 1fr;
+
+    width: 100%;
+    height: 85vh;
+
+    /* El gradiente va primero, la imagen después */
+    background-image: 
+        linear-gradient(to bottom, transparent 85%, #141414 100%), 
+        url(/main-background.gif);
+    background-repeat: no-repeat;
+    background-size: cover, cover;
+    background-position: center, center;
+}
+
+
+
+.contenido-inicio{
+    height: 100%;
+    padding: 4rem 2rem;
+    /* background-color:#00800087; */
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.inicio-informacion{
+    width: 50%;
+    margin: auto 0px;
+    /* background-color: orange; */
+}
+
+
+/* Para pantallas más pequeñas */
+@media (max-width: 768px) {
+    .main-content {
+        height: 50vh; /* Cambia el alto en dispositivos móviles */
+    }
+
+    .inicio-informacion {
+        width: 100%;
+        margin: 0px;
+    }
+
+    .contenido-inicio{
+        padding: 1rem;
+        width: 100%;
+    }
+}
