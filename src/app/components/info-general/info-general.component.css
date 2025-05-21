@@ -21,6 +21,7 @@
 
 
 
+
 .contenido-inicio{
     height: 100%;
     padding: 4rem 2rem;
@@ -35,6 +36,10 @@
     width: 50%;
     margin: auto 0px;
     /* background-color: orange; */
+}
+
+.titulo-nombre{
+    font-family: Tektur !important;
 }
 
 

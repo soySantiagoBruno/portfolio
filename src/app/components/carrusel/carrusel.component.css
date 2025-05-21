@@ -2,6 +2,16 @@
     min-width: 18rem !important;
 }
 
+.card-container{
+    scrollbar-width: none !important; /* Firefox */
+    -ms-overflow-style: none !important; /* IE & Edge */
+    &::-webkit-scrollbar {
+        display: none;
+    } /* Chrome, Safari y Opera */
+    
+    scroll-behavior: smooth; 
+    gap: 1rem;
+}
 
 /* Contenedor de la imagen */
 .card-img-container {
