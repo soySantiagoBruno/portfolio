@@ -1,29 +1,30 @@
  
   
-  <!-- Carrusel proyectos-->
-  <div class="container-fluid position-relative" style="margin-top: -2rem;">
-    <h2>Algunos de mis proyectos: </h2>
+<!-- Carrusel proyectos -->
+<div class="container-fluid position-relative" style="margin-top: -2rem;">
+  <h2>Algunos de mis proyectos: </h2>
+
+  <div class="card-carousel-wrapper position-relative">
+    <!-- Flechas superpuestas -->
+    <button (click)="scrollLeft()" class="netflix-arrow left-arrow">
+      <i class="bi bi-arrow-left-short"></i>
+    </button>
+    <button (click)="scrollRight()" class="netflix-arrow right-arrow">
+      <i class="bi bi-arrow-right-short"></i>
+    </button>
+
+    <!-- Carrusel de tarjetas -->
     <div #cardContainer class="card-container d-flex flex-row overflow-auto py-3">
-      
-        <!-- Tarjetas del carrusel -->
-        <div class="card" *ngFor="let proyecto of proyectos">
-          <div class="card-img-container position-relative">
-            <img [src]="proyecto.image" class="card-img-top" alt="Card image">
-            <h5 *ngIf="proyecto.title" class="card-title position-absolute">{{ proyecto.title }}</h5>
-          </div>
+      <div class="card" *ngFor="let proyecto of proyectos" (click)="abrirModal(proyecto)">
+        <div class="card-img-container position-relative">
+          <img [src]="proyecto.image" class="card-img-top" alt="Card image">
+          <h5 *ngIf="proyecto.title" class="card-title">{{ proyecto.title }}</h5>
         </div>
       </div>
-    
-  
-  
-  
-      <!-- Botones superpuestos -->
-      <button (click)="scrollLeft()" class="position-absolute top-50 start-10 translate-middle-y" style="z-index: 10; border: none; background: none;">
-        <i class="bi bi-caret-left"></i>
-      </button>
-      <button (click)="scrollRight()" class="position-absolute top-50 end-0 translate-middle-y" style="z-index: 10;border: none; background: none;">
-        <i class="bi bi-caret-right"></i>
-      </button>
-  
-    
-  </div>  
+    </div>
+
+
+  </div>
+</div>
+
+

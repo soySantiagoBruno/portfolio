@@ -1,5 +1,7 @@
 import { NgFor, NgIf } from '@angular/common';
 import { Component, ElementRef, ViewChild } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ModalProyectoComponent } from '../modal-proyecto/modal-proyecto.component';
 
 @Component({
   selector: 'app-carrusel',
@@ -10,13 +12,42 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
 })
 export class CarruselComponent {
 
+  constructor(private modalService: NgbModal) {}
+
+  // Esto lo voy a inyectar en el futuro con un service
   proyectos: any[] = [
-    { id: 1, title: 'Proyecto 1', description: 'Descripción del proyecto 1', image: 'main-background.gif' },
-    { id: 2, title: 'Proyecto 2', description: 'Descripción del proyecto 1', image: 'main-background.gif' },
-    { id: 3, title: 'Proyecto 3', description: 'Descripción del proyecto 1', image: 'main-background.gif' },
-    { id: 4, title: 'Proyecto 4', description: 'Descripción del proyecto 1', image: 'main-background.gif' },
-    { id: 5, title: 'Proyecto 5', description: 'Descripción del proyecto 1', image: 'main-background.gif' },
-    { id: 6, title: 'Proyecto 5', description: 'Descripción del proyecto 1', image: 'main-background.gif' },
+    { 
+      id: 1, 
+      title: 'Proyecto 1', 
+      description: 'Descripción del proyecto 1', 
+      image: 'main-background.gif', 
+      repositorio: "https://github.com/soySantiagoBruno/proyecto-1", 
+      tecnologias: ['Angular', 'TypeScript', 'Bootstrap'] 
+    },
+    { 
+      id: 2, 
+      title: 'Proyecto 2', 
+      description: 'Descripción del proyecto 2', 
+      image: 'dashboard-demo.png', 
+      repositorio: "https://github.com/soySantiagoBruno/proyecto-2", 
+      tecnologias: ['React', 'JavaScript', 'Material UI'] 
+    },
+    { 
+      id: 3, 
+      title: 'Proyecto 3', 
+      description: 'Descripción del proyecto 3', 
+      image: 'api-integration.jpg', 
+      repositorio: "https://github.com/soySantiagoBruno/proyecto-3", 
+      tecnologias: ['Node.js', 'Express', 'MongoDB'] 
+    },
+    { 
+      id: 4, 
+      title: 'Proyecto 4', 
+      description: 'Descripción del proyecto 4', 
+      image: 'mobile-app.png', 
+      repositorio: "https://github.com/soySantiagoBruno/proyecto-4", 
+      tecnologias: ['Flutter', 'Dart', 'Firebase'] 
+    }
   ]
 
   @ViewChild('cardContainer') container!: ElementRef;
@@ -34,5 +65,10 @@ export class CarruselComponent {
     }
   }
 
+
+  abrirModal(proyecto: any) {
+    const modalRef = this.modalService.open(ModalProyectoComponent);
+    modalRef.componentInstance.proyecto = proyecto;
+  }
   
 }
