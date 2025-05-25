@@ -1,0 +1,23 @@
+<!-- <div class="modal-header">
+    <h5 class="modal-title">{{ proyecto?.title }}</h5>
+</div>
+<div class="modal-body">
+    <img [src]="proyecto?.image" class="img-fluid mb-3" *ngIf="proyecto?.image">
+    <p>{{ proyecto?.descripcion }}</p>
+</div> -->
+
+
+
+<div class="imagen-header">
+  <img [src]="proyecto?.image" class="img-fluid w-100 imagen-proyecto" alt="Imagen del proyecto">
+  <div class="info">
+      <h2 class="titulo-superpuesto">{{ proyecto?.title }}</h2>
+      <div class="btn btn-primary">Ver</div>
+      <div class="btn btn-primary">Repositorio</div>
+  </div>
+
+</div>
+
+<div class="modal-body">
+  <p>{{ proyecto?.description }}</p>
+</div>

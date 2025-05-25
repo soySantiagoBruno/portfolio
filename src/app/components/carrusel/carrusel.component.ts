@@ -1,7 +1,7 @@
 import { NgFor, NgIf } from '@angular/common';
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { ModalProyectoComponent } from '../modal-proyecto/modal-proyecto.component';
+import { ModalProyectoComponent } from './modal-proyecto/modal-proyecto.component';
 
 @Component({
   selector: 'app-carrusel',
@@ -28,7 +28,7 @@ export class CarruselComponent {
       id: 2, 
       title: 'Proyecto 2', 
       description: 'Descripción del proyecto 2', 
-      image: 'dashboard-demo.png', 
+      image: 'main-background.gif', 
       repositorio: "https://github.com/soySantiagoBruno/proyecto-2", 
       tecnologias: ['React', 'JavaScript', 'Material UI'] 
     },
@@ -36,7 +36,7 @@ export class CarruselComponent {
       id: 3, 
       title: 'Proyecto 3', 
       description: 'Descripción del proyecto 3', 
-      image: 'api-integration.jpg', 
+      image: 'main-background.gif', 
       repositorio: "https://github.com/soySantiagoBruno/proyecto-3", 
       tecnologias: ['Node.js', 'Express', 'MongoDB'] 
     },
@@ -44,7 +44,7 @@ export class CarruselComponent {
       id: 4, 
       title: 'Proyecto 4', 
       description: 'Descripción del proyecto 4', 
-      image: 'mobile-app.png', 
+      image: 'main-background.gif', 
       repositorio: "https://github.com/soySantiagoBruno/proyecto-4", 
       tecnologias: ['Flutter', 'Dart', 'Firebase'] 
     }
@@ -67,7 +67,11 @@ export class CarruselComponent {
 
 
   abrirModal(proyecto: any) {
-    const modalRef = this.modalService.open(ModalProyectoComponent);
+    const modalRef = this.modalService.open(ModalProyectoComponent,{
+      windowClass: 'modal-personalizado',
+      size: 'lg',
+      scrollable: true
+    });
     modalRef.componentInstance.proyecto = proyecto;
   }
   

@@ -1,0 +1,33 @@
+.modal-personalizado{
+    margin-top: 10px !important;
+
+}
+
+
+.imagen-header {
+  position: relative;
+  overflow: hidden;
+}
+
+.imagen-proyecto {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  max-height: 400px;
+  filter: brightness(70%); /* Oscurece un poco la imagen para resaltar el texto */
+}
+
+.info {
+  position: absolute; 
+  bottom:0px;
+  margin-bottom: 25px;
+  background-color: orange;
+}
+
+.titulo-superpuesto{
+    color: white;
+  font-size: 2rem;
+  font-weight: bold;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+}
