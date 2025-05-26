@@ -6,18 +6,29 @@
     <p>{{ proyecto?.descripcion }}</p>
 </div> -->
 
-
-
 <div class="imagen-header">
   <img [src]="proyecto?.image" class="img-fluid w-100 imagen-proyecto" alt="Imagen del proyecto">
+  <div class="gradiente-sobre-imagen"></div>
   <div class="info">
-      <h2 class="titulo-superpuesto">{{ proyecto?.title }}</h2>
-      <div class="btn btn-primary">Ver</div>
-      <div class="btn btn-primary">Repositorio</div>
+    <h2 class="titulo-superpuesto">{{ proyecto?.title }}</h2>
+    <div *ngIf="proyecto?.deploy" class="btn btn-light px-3 py-1 me-3"><i class="bi bi-play-fill"></i> Ver</div>
+    <div class="btn text-white px-3 py-1 m-0" style="background-color: #212429;"><i class="bi bi-github"></i>  Repositorio</div>
   </div>
-
 </div>
 
-<div class="modal-body">
-  <p>{{ proyecto?.description }}</p>
+<div class="modal-body bg-netflix">
+  <div class="row">
+    <div class="col-12 col-md-8">
+      <p>{{ proyecto?.description }}</p>
+    </div>
+    <div class="col-12 col-md-4">
+      <p><strong>Tecnologías: </strong></p>
+      <div class="d-flex flex-wrap gap-2">
+        <span *ngFor="let tech of proyecto?.tecnologias" class="badge bg-primary">
+          {{ tech }}
+        </span>
+      </div>
+    </div>
+
+  </div>
 </div>

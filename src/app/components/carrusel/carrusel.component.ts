@@ -19,8 +19,9 @@ export class CarruselComponent {
     { 
       id: 1, 
       title: 'Proyecto 1', 
-      description: 'Descripción del proyecto 1', 
+      description: 'lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', 
       image: 'main-background.gif', 
+      deploy: 'www.wikipedia.com',
       repositorio: "https://github.com/soySantiagoBruno/proyecto-1", 
       tecnologias: ['Angular', 'TypeScript', 'Bootstrap'] 
     },

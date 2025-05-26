@@ -1,10 +1,10 @@
-import { NgIf } from '@angular/common';
+import { NgFor, NgIf } from '@angular/common';
 import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-modal-proyecto',
   standalone: true,
-  imports: [NgIf  ],
+  imports: [NgIf, NgFor],
   templateUrl: './modal-proyecto.component.html',
   styleUrl: './modal-proyecto.component.css'
 })
