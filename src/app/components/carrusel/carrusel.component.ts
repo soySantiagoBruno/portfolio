@@ -1,4 +1,4 @@
-import { NgFor, NgIf } from '@angular/common';
+import { NgClass, NgFor, NgIf } from '@angular/common';
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ModalProyectoComponent } from './modal-proyecto/modal-proyecto.component';
@@ -6,7 +6,7 @@ import { ModalProyectoComponent } from './modal-proyecto/modal-proyecto.componen
 @Component({
   selector: 'app-carrusel',
   standalone: true,
-  imports: [NgFor, NgIf],
+  imports: [NgFor, NgIf, NgClass],
   templateUrl: './carrusel.component.html',
   styleUrl: './carrusel.component.css'
 })

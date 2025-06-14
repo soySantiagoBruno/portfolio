@@ -15,15 +15,23 @@
 
     <!-- Carrusel de tarjetas -->
     <div #cardContainer class="card-container d-flex flex-row overflow-auto py-3">
-      <div class="card" *ngFor="let proyecto of proyectos" (click)="abrirModal(proyecto)">
-        <div class="card-img-container position-relative">
-          <img [src]="proyecto.image" class="card-img-top" alt="Card image">
-          <h5 *ngIf="proyecto.title" class="card-title">{{ proyecto.title }}</h5>
+      <div  class="card hover-card"
+  *ngFor="let proyecto of proyectos; let i = index"
+  [ngClass]="{
+    'hover-left': i === 0,
+    'hover-right': i === proyectos.length - 1,
+    'hover-center': i > 0 && i < proyectos.length - 1
+  }"
+  (click)="abrirModal(proyecto)">
+        <div class="card-img-container position-relative cover" [style.backgroundImage]="'url(' + proyecto.image + ')'">
+          <!-- Imagen oculta para SEO/accesibilidad -->
+          <img [src]="proyecto.image" class="card-img-top d-none" alt="Card image">
+        </div>
+        <div class="hover-text">
+          {{ proyecto.title }}
         </div>
       </div>
     </div>
-
-
   </div>
 </div>
 
