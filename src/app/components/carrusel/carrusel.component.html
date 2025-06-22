@@ -1,8 +1,6 @@
- 
-  
 <!-- Carrusel proyectos -->
-<div class="container-fluid position-relative" style="margin-top: -2rem;">
-  <h2>Algunos de mis proyectos: </h2>
+<div class="container-fluid position-relative" style="margin-top: -2rem">
+  <h2>Algunos de mis proyectos:</h2>
 
   <div class="card-carousel-wrapper position-relative">
     <!-- Flechas superpuestas -->
@@ -14,25 +12,45 @@
     </button>
 
     <!-- Carrusel de tarjetas -->
-    <div #cardContainer class="card-container d-flex flex-row overflow-auto py-3">
-      <div  class="card hover-card"
-  *ngFor="let proyecto of proyectos; let i = index"
-  [ngClass]="{
-    'hover-left': i === 0,
-    'hover-right': i === proyectos.length - 1,
-    'hover-center': i > 0 && i < proyectos.length - 1
-  }"
-  (click)="abrirModal(proyecto)">
-        <div class="card-img-container position-relative cover" [style.backgroundImage]="'url(' + proyecto.image + ')'">
+    <div
+      #cardContainer
+      class="card-container d-flex flex-row overflow-auto py-3"
+    >
+      <div
+        class="card hover-card"
+        *ngFor="let proyecto of proyectos; let i = index"
+        [ngClass]="{
+          'hover-left': i === 0,
+          'hover-right': i === proyectos.length - 1,
+          'hover-center': i > 0 && i < proyectos.length - 1
+        }"
+        (click)="abrirModal(proyecto)"
+      >
+        <div
+          class="card-img-container position-relative cover"
+          [style.backgroundImage]="'url(' + proyecto.image + ')'"
+        >
           <!-- Imagen oculta para SEO/accesibilidad -->
-          <img [src]="proyecto.image" class="card-img-top d-none" alt="Card image">
+          <img
+            [src]="proyecto.image"
+            class="card-img-top d-none"
+            alt="Card image"
+          />
         </div>
-        <div class="hover-text">
-          {{ proyecto.title }}
+
+        <!-- info card -->
+        <div
+          class="info-tarjeta justify-content-between align-items-center hover-text"
+        >
+          <span class="fs-6">{{ proyecto.title }}</span>
+          <div class="d-flex gap-2">
+            <a style="text-decoration: none; color:white" [href]="proyecto?.deploy" target="_blank">
+              <i class="bi bi-play-circle-fill fs-5"></i>
+            </a>
+            <i class="bi bi-arrow-down-square-fill fs-5"></i>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-
-
