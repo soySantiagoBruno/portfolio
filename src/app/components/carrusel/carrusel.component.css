@@ -1,6 +1,5 @@
 
 .card-container {
-   overflow: visible !important;
   scrollbar-width: none !important;
   -ms-overflow-style: none !important;
   &::-webkit-scrollbar {
