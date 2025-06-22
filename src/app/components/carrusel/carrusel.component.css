@@ -11,6 +11,9 @@
 }
 
 .hover-card {
+  margin-top:32px;
+  margin-bottom: 32px;
+
   width: 14rem;
   height: 9rem;
   overflow: hidden;
