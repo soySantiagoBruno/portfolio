@@ -1,0 +1,44 @@
+<!-- Carrusel proyectos -->
+<div class="container-fluid position-relative">
+  <h2 style="margin-bottom: -32px;">Tecnologías:</h2>
+
+  <div class="card-carousel-wrapper position-relative">
+    <!-- Flechas superpuestas -->
+    <button (click)="scrollLeft()" class="netflix-arrow left-arrow">
+      <i class="bi bi-arrow-left-short"></i>
+    </button>
+    <button (click)="scrollRight()" class="netflix-arrow right-arrow">
+      <i class="bi bi-arrow-right-short"></i>
+    </button>
+
+    <!-- Carrusel de tarjetas -->
+    <div
+      #cardContainer
+      class="card-container d-flex flex-row overflow-auto py-3"
+    >
+      <div
+        class="card hover-card"
+        *ngFor="let proyecto of proyectos; let i = index"
+        [ngClass]="{
+          'hover-left': i === 0,
+          'hover-right': i === proyectos.length - 1,
+          'hover-center': i > 0 && i < proyectos.length - 1
+        }"
+      >
+        <div
+          class="card-img-container position-relative cover"
+          [style.backgroundImage]="'url(' + proyecto.image + ')'"
+        >
+          <!-- Imagen oculta para SEO/accesibilidad -->
+          <img
+            [src]="proyecto.image"
+            class="card-img-top d-none"
+            alt="Card image"
+          />
+        </div>
+
+  
+      </div>
+    </div>
+  </div>
+</div>
