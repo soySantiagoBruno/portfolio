@@ -4,13 +4,13 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ModalProyectoComponent } from './modal-proyecto/modal-proyecto.component';
 
 @Component({
-  selector: 'app-carrusel',
+  selector: 'app-carrusel-proyectos',
   standalone: true,
   imports: [NgFor, NgIf, NgClass  ],
-  templateUrl: './carrusel.component.html',
-  styleUrl: './carrusel.component.css'
+  templateUrl: './carrusel-proyectos.component.html',
+  styleUrl: './carrusel-proyectos.component.css'
 })
-export class CarruselComponent {
+export class CarruselProyectosComponent {
 
   constructor(private modalService: NgbModal) {}
 
