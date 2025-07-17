@@ -18,24 +18,14 @@
     >
       <div
         class="card hover-card"
-        *ngFor="let proyecto of proyectos; let i = index"
+        *ngFor="let tech of techs ; let i = index"
         [ngClass]="{
           'hover-left': i === 0,
-          'hover-right': i === proyectos.length - 1,
-          'hover-center': i > 0 && i < proyectos.length - 1
+          'hover-right': i === techs.length - 1,
+          'hover-center': i > 0 && i < techs.length - 1
         }"
       >
-        <div
-          class="card-img-container position-relative cover"
-          [style.backgroundImage]="'url(' + proyecto.image + ')'"
-        >
-          <!-- Imagen oculta para SEO/accesibilidad -->
-          <img
-            [src]="proyecto.image"
-            class="card-img-top d-none"
-            alt="Card image"
-          />
-        </div>
+        <img [src]="tech.url" alt="">
 
   
       </div>

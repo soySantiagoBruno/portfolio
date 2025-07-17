@@ -10,45 +10,27 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
   styleUrl: './carrusel-skills.component.css'
 })
 export class CarruselSkillsComponent {
+  
+  constructor(private modalService: NgbModal) {
+  }
 
-  constructor(private modalService: NgbModal) {}
 
   // Esto lo voy a inyectar en el futuro con un service
-  proyectos: any[] = [
-    { 
-      id: 1, 
-      title: 'Proyecto 1', 
-      description: 'lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', 
-      image: 'main-background.gif', 
-      deploy: 'https://www.wikipedia.com',
-      repositorio: "https://github.com/soySantiagoBruno/proyecto-1", 
-      tecnologias: ['Angular', 'TypeScript', 'Bootstrap'] 
-    },
-    { 
-      id: 2, 
-      title: 'Proyecto 2', 
-      description: 'Descripción del proyecto 2', 
-      image: 'main-background.gif', 
-      repositorio: "https://github.com/soySantiagoBruno/proyecto-2", 
-      tecnologias: ['React', 'JavaScript', 'Material UI'] 
-    },
-    { 
-      id: 3, 
-      title: 'Proyecto 3', 
-      description: 'Descripción del proyecto 3', 
-      image: 'main-background.gif', 
-      repositorio: "https://github.com/soySantiagoBruno/proyecto-3", 
-      tecnologias: ['Node.js', 'Express', 'MongoDB'] 
-    },
-    { 
-      id: 4, 
-      title: 'Proyecto 4', 
-      description: 'Descripción del proyecto 4', 
-      image: 'main-background.gif', 
-      repositorio: "https://github.com/soySantiagoBruno/proyecto-4", 
-      tecnologias: ['Flutter', 'Dart', 'Firebase'] 
-    }
-  ]
+  techs = [
+  { name: 'Angular', url: 'https://img.shields.io/badge/Angular-0F0F11?style=flat&logo=angular&logoColor=white' },
+  { name: 'React', url: 'https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black' },
+  { name: 'TypeScript', url: 'https://img.shields.io/badge/TypeScript-3178C6?style=flat&logo=typescript&logoColor=white' },
+  { name: 'Node.js', url: 'https://img.shields.io/badge/Node.js-339933?style=flat&logo=node.js&logoColor=white' },
+  { name: 'Express', url: 'https://img.shields.io/badge/Express-000000?style=flat&logo=express&logoColor=white' },
+  { name: 'MongoDB', url: 'https://img.shields.io/badge/MongoDB-47A248?style=flat&logo=mongodb&logoColor=white' },
+  { name: 'MySQL', url: 'https://img.shields.io/badge/MySQL-4479A1?style=flat&logo=mysql&logoColor=white' },
+  { name: 'PostgreSQL', url: 'https://img.shields.io/badge/PostgreSQL-4169E1?style=flat&logo=postgresql&logoColor=white' },
+  { name: 'Docker', url: 'https://img.shields.io/badge/Docker-2496ED?style=flat&logo=docker&logoColor=white' },
+  { name: 'Kubernetes', url: 'https://img.shields.io/badge/Kubernetes-326CE5?style=flat&logo=kubernetes&logoColor=white' },
+  { name: 'Git', url: 'https://img.shields.io/badge/Git-F05032?style=flat&logo=git&logoColor=white' },
+  { name: 'GitHub', url: 'https://img.shields.io/badge/GitHub-181717?style=flat&logo=github&logoColor=white' }
+];
+
 
   @ViewChild('cardContainer') container!: ElementRef;
   private scrollAmount = 300;
