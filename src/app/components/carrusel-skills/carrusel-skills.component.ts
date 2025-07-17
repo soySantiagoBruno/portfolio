@@ -1,6 +1,7 @@
 import { NgClass, NgFor } from '@angular/common';
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { url } from 'node:inspector';
 
 @Component({
   selector: 'app-carrusel-skills',
@@ -10,25 +11,28 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
   styleUrl: './carrusel-skills.component.css'
 })
 export class CarruselSkillsComponent {
-  
-  constructor(private modalService: NgbModal) {
+
+  playHoverSound() {
+    const audio = new Audio('/sounds/hover-sound.wav');
+    audio.currentTime = 0;
+    audio.play();
   }
+
+  constructor(private modalService: NgbModal) {}
+
 
 
   // Esto lo voy a inyectar en el futuro con un service
   techs = [
-  { name: 'Angular', url: 'https://img.shields.io/badge/Angular-0F0F11?style=flat&logo=angular&logoColor=white' },
-  { name: 'React', url: 'https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black' },
-  { name: 'TypeScript', url: 'https://img.shields.io/badge/TypeScript-3178C6?style=flat&logo=typescript&logoColor=white' },
-  { name: 'Node.js', url: 'https://img.shields.io/badge/Node.js-339933?style=flat&logo=node.js&logoColor=white' },
-  { name: 'Express', url: 'https://img.shields.io/badge/Express-000000?style=flat&logo=express&logoColor=white' },
-  { name: 'MongoDB', url: 'https://img.shields.io/badge/MongoDB-47A248?style=flat&logo=mongodb&logoColor=white' },
-  { name: 'MySQL', url: 'https://img.shields.io/badge/MySQL-4479A1?style=flat&logo=mysql&logoColor=white' },
-  { name: 'PostgreSQL', url: 'https://img.shields.io/badge/PostgreSQL-4169E1?style=flat&logo=postgresql&logoColor=white' },
-  { name: 'Docker', url: 'https://img.shields.io/badge/Docker-2496ED?style=flat&logo=docker&logoColor=white' },
-  { name: 'Kubernetes', url: 'https://img.shields.io/badge/Kubernetes-326CE5?style=flat&logo=kubernetes&logoColor=white' },
-  { name: 'Git', url: 'https://img.shields.io/badge/Git-F05032?style=flat&logo=git&logoColor=white' },
-  { name: 'GitHub', url: 'https://img.shields.io/badge/GitHub-181717?style=flat&logo=github&logoColor=white' }
+  {name:'Java', image: 'https://cdn.worldvectorlogo.com/logos/java.svg'},
+  { name: 'Angular', image: 'https://seeklogo.com/images/A/angular-icon-logo-5FC0C40EAC-seeklogo.com.png' },
+  { name: 'Spring', image: 'https://cdn.worldvectorlogo.com/logos/spring-9.svg' },
+  { name: 'Node.js', image: 'https://cdn.worldvectorlogo.com/logos/nodejs-icon.svg' },
+  { name: 'PostgreSQL', image: 'https://cdn.worldvectorlogo.com/logos/postgresql.svg' },
+  { name: 'MySQL', image: 'https://cdn.worldvectorlogo.com/logos/mysql-6.svg' },
+  { name: 'Git', image: 'https://cdn.worldvectorlogo.com/logos/git-icon.svg' },
+  { name: 'Docker', image: 'https://cdn.worldvectorlogo.com/logos/docker-icon.svg' },
+  { name: 'Kubernetes', image: 'https://cdn.worldvectorlogo.com/logos/kubernetes-1.svg' }
 ];
 
 

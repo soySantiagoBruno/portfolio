@@ -20,6 +20,7 @@
       <div
         class="card hover-card"
         *ngFor="let proyecto of grupoDeProyecto.proyectos; let i = index"
+        (mouseenter)="playHoverSound()"
         [ngClass]="{
           'hover-left': i === 0,
           'hover-right': i === grupoDeProyecto.proyectos.length - 1,

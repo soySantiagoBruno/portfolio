@@ -1,6 +1,6 @@
 <!-- Carrusel proyectos -->
 <div class="container-fluid position-relative">
-  <h2 style="margin-bottom: -32px;">Tecnologías:</h2>
+  <h2 style="margin-bottom: -32px;">Tecnologías</h2>
 
   <div class="card-carousel-wrapper position-relative">
     <!-- Flechas superpuestas -->
@@ -18,16 +18,27 @@
     >
       <div
         class="card hover-card"
-        *ngFor="let tech of techs ; let i = index"
+        *ngFor="let skill of techs; let i = index"
+        (mouseenter)="playHoverSound()"
         [ngClass]="{
           'hover-left': i === 0,
           'hover-right': i === techs.length - 1,
           'hover-center': i > 0 && i < techs.length - 1
         }"
-      >
-        <img [src]="tech.url" alt="">
 
-  
+      >
+        <div
+          class="card-img-container position-relative cover"
+          [style.backgroundImage]="'url(' + skill.image + ')'"
+        >
+        </div>
+
+        <!-- info card -->
+        <div
+          class="info-tarjeta justify-content-between align-items-center hover-text"
+        >
+          <span class="fs-6">{{ skill.name }}</span>
+        </div>
       </div>
     </div>
   </div>

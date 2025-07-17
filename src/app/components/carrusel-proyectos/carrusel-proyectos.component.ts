@@ -42,4 +42,11 @@ export class CarruselProyectosComponent {
     modalRef.componentInstance.proyecto = proyecto;
   }
   
+  // Método para reproducir el sonido al pasar el mouse
+  playHoverSound() {
+      const audio = new Audio('/sounds/hover-sound.wav');
+      audio.currentTime = 0;
+      audio.play();
+    }
+
 }
