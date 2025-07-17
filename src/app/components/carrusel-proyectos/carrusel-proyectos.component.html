@@ -1,6 +1,7 @@
 <!-- Carrusel proyectos -->
-<div class="container-fluid position-relative">
-  <h2 style="margin-bottom: -32px;">Algunos de mis proyectos:</h2>
+<div class="container-fluid position-relative" 
+*ngFor="let grupoDeProyecto of gruposDeProyectos; let i = index">
+  <h2 style="margin-bottom: -32px;">{{grupoDeProyecto.nombre}}</h2>
 
   <div class="card-carousel-wrapper position-relative">
     <!-- Flechas superpuestas -->
@@ -18,11 +19,11 @@
     >
       <div
         class="card hover-card"
-        *ngFor="let proyecto of proyectos; let i = index"
+        *ngFor="let proyecto of grupoDeProyecto.proyectos; let i = index"
         [ngClass]="{
           'hover-left': i === 0,
-          'hover-right': i === proyectos.length - 1,
-          'hover-center': i > 0 && i < proyectos.length - 1
+          'hover-right': i === grupoDeProyecto.proyectos.length - 1,
+          'hover-center': i > 0 && i < grupoDeProyecto.proyectos.length - 1
         }"
         (click)="abrirModal(proyecto)"
       >

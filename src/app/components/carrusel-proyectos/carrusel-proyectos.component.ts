@@ -1,5 +1,5 @@
 import { NgClass, NgFor, NgIf } from '@angular/common';
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ModalProyectoComponent } from './modal-proyecto/modal-proyecto.component';
 
@@ -14,42 +14,8 @@ export class CarruselProyectosComponent {
 
   constructor(private modalService: NgbModal) {}
 
-  // Esto lo voy a inyectar en el futuro con un service
-  proyectos: any[] = [
-    { 
-      id: 1, 
-      title: 'Proyecto 1', 
-      description: 'lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', 
-      image: 'main-background.gif', 
-      deploy: 'https://www.wikipedia.com',
-      repositorio: "https://github.com/soySantiagoBruno/proyecto-1", 
-      tecnologias: ['Angular', 'TypeScript', 'Bootstrap'] 
-    },
-    { 
-      id: 2, 
-      title: 'Proyecto 2', 
-      description: 'Descripción del proyecto 2', 
-      image: 'main-background.gif', 
-      repositorio: "https://github.com/soySantiagoBruno/proyecto-2", 
-      tecnologias: ['React', 'JavaScript', 'Material UI'] 
-    },
-    { 
-      id: 3, 
-      title: 'Proyecto 3', 
-      description: 'Descripción del proyecto 3', 
-      image: 'main-background.gif', 
-      repositorio: "https://github.com/soySantiagoBruno/proyecto-3", 
-      tecnologias: ['Node.js', 'Express', 'MongoDB'] 
-    },
-    { 
-      id: 4, 
-      title: 'Proyecto 4', 
-      description: 'Descripción del proyecto 4', 
-      image: 'main-background.gif', 
-      repositorio: "https://github.com/soySantiagoBruno/proyecto-4", 
-      tecnologias: ['Flutter', 'Dart', 'Firebase'] 
-    }
-  ]
+  // Paso los proyectos como input para poder reutilizar el componente
+  @Input() gruposDeProyectos: any;
 
   @ViewChild('cardContainer') container!: ElementRef;
   private scrollAmount = 300;
