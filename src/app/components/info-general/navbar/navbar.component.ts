@@ -6,12 +6,12 @@ import { Component, HostListener } from '@angular/core';
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [NgStyle],
+  imports: [NgClass, NgStyle],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css'
 })
-export class NavbarComponent{
-
+export class NavbarComponent {
+  seccionActual = 'home';
   backgroundOpacity = 0;
 
   @HostListener('window:scroll', [])
@@ -20,6 +20,18 @@ export class NavbarComponent{
     const maxScroll = 200; // después de 200px, opacidad total
     const opacity = Math.min(scrollY / maxScroll, 1);
     this.backgroundOpacity = opacity;
+
+    const secciones = ['home', 'proyectos', 'skills', 'contacto'];
+    for (const seccion of secciones) {
+      const el = document.getElementById(seccion);
+      if (el) {
+        const rect = el.getBoundingClientRect();
+        if (rect.top <= 80 && rect.bottom > 80) {
+          this.seccionActual = seccion;
+          break;
+        }
+      }
+    }
   }
 
   get backgroundStyle() {
@@ -28,17 +40,17 @@ export class NavbarComponent{
     };
   }
 
+  cambiarSeccion(seccion: string) {
+    this.seccionActual = seccion;
+  }
 
   constructor(private modalService: NgbModal) {}
-    
-  
-    abrirModal() {
-        const modalRef = this.modalService.open(MasInfoComponent,{
-          windowClass: 'modal-about',
-          size: 'lg',
-          scrollable: true
-        });
-      }
-  
 
+  abrirModal() {
+    const modalRef = this.modalService.open(MasInfoComponent, {
+      windowClass: 'modal-about',
+      size: 'lg',
+      scrollable: true
+    });
+  }
 }

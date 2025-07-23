@@ -11,3 +11,24 @@
   background: #141414; /* Fondo sólido tipo Netflix */
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
 }
+
+@media (max-width: 768px) {
+  .navbar {
+    background: #141414 !important; /* Fondo sólido tipo Netflix */
+  }
+}
+
+.perfil-movil {
+  display: none !important;
+}
+.perfil-escritorio {
+  display: flex !important;
+}
+@media (max-width: 768px) {
+  .perfil-movil {
+    display: flex !important;
+  }
+  .perfil-escritorio {
+    display: none !important;
+  }
+}
