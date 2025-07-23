@@ -6,7 +6,7 @@ import { ModalProyectoComponent } from './modal-proyecto/modal-proyecto.componen
 @Component({
   selector: 'app-carrusel-proyectos',
   standalone: true,
-  imports: [NgFor, NgClass  ],
+  imports: [NgFor, NgClass],
   templateUrl: './carrusel-proyectos.component.html',
   styleUrl: './carrusel-proyectos.component.css'
 })

@@ -6,7 +6,7 @@ import { Component, HostListener } from '@angular/core';
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [NgClass, NgStyle],
+  imports: [NgStyle],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css'
 })
