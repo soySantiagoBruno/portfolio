@@ -1,4 +1,6 @@
 import { NgClass, NgStyle } from '@angular/common';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { MasInfoComponent } from '../../mas-info/mas-info.component';
 import { Component, HostListener } from '@angular/core';
 
 @Component({
@@ -8,9 +10,9 @@ import { Component, HostListener } from '@angular/core';
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css'
 })
-export class NavbarComponent {
+export class NavbarComponent{
 
-    backgroundOpacity = 0;
+  backgroundOpacity = 0;
 
   @HostListener('window:scroll', [])
   onWindowScroll() {
@@ -26,5 +28,17 @@ export class NavbarComponent {
     };
   }
 
+
+  constructor(private modalService: NgbModal) {}
+    
   
+    abrirModal() {
+        const modalRef = this.modalService.open(MasInfoComponent,{
+          windowClass: 'modal-about',
+          size: 'lg',
+          scrollable: true
+        });
+      }
+  
+
 }

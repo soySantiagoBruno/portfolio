@@ -1,45 +1,47 @@
 <!-- Carrusel proyectos -->
-<div class="container-fluid position-relative">
-  <h2 style="margin-bottom: -32px;">Tecnologías</h2>
+<div id="skills" class="container-fluid position-relative">
+  <h2>Skills</h2>
 
-  <div class="card-carousel-wrapper position-relative">
-    <!-- Flechas superpuestas -->
-    <button (click)="scrollLeft()" class="netflix-arrow left-arrow">
-      <i class="bi bi-arrow-left-short"></i>
-    </button>
-    <button (click)="scrollRight()" class="netflix-arrow right-arrow">
-      <i class="bi bi-arrow-right-short"></i>
-    </button>
+  <ng-container *ngFor="let grupo of skills">
+    <h4 class=" mb-1" style="color:#7A7A73">{{ grupo.category }}</h4>
+    <div class="card-carousel-wrapper position-relative">
+      <!-- Flechas superpuestas -->
+      <button (click)="scrollLeft()" class="netflix-arrow left-arrow">
+        <i class="bi bi-arrow-left-short"></i>
+      </button>
+      <button (click)="scrollRight()" class="netflix-arrow right-arrow">
+        <i class="bi bi-arrow-right-short"></i>
+      </button>
 
-    <!-- Carrusel de tarjetas -->
-    <div
-      #cardContainer
-      class="card-container d-flex flex-row overflow-auto py-3"
-    >
+      <!-- Carrusel de tarjetas -->
       <div
-        class="card hover-card"
-        *ngFor="let skill of techs; let i = index"
-        (mouseenter)="playHoverSound()"
-        [ngClass]="{
-          'hover-left': i === 0,
-          'hover-right': i === techs.length - 1,
-          'hover-center': i > 0 && i < techs.length - 1
-        }"
-
+        #cardContainer
+        class="card-container d-flex flex-row overflow-auto py-3"
       >
         <div
-          class="card-img-container position-relative cover"
-          [style.backgroundImage]="'url(' + skill.image + ')'"
+          class="card hover-card"
+          *ngFor="let skill of grupo.items; let i = index"
+          (mouseenter)="playHoverSound()"
+          [ngClass]="{
+            'hover-left': i === 0,
+            'hover-right': i === grupo.items.length - 1,
+            'hover-center': i > 0 && i < grupo.items.length - 1
+          }"
         >
-        </div>
+          <div
+            class="card-img-container position-relative cover"
+            [style.backgroundImage]="'url(' + skill.image + ')'"
+          >
+          </div>
 
-        <!-- info card -->
-        <div
-          class="info-tarjeta justify-content-between align-items-center hover-text"
-        >
-          <span class="fs-6">{{ skill.name }}</span>
+          <!-- info card -->
+          <div
+            class="info-tarjeta justify-content-between align-items-center hover-text"
+          >
+            <span class="fs-6">{{ skill.name }}</span>
+          </div>
         </div>
       </div>
     </div>
-  </div>
+  </ng-container>
 </div>

@@ -1,3 +1,6 @@
+#skills{
+  scroll-margin-top: 80px; /* altura de tu navbar */
+}
 
 .card-container {
   scrollbar-width: none !important;
@@ -8,14 +11,18 @@
   scroll-behavior: smooth;
   gap: 1rem;
   padding: 1rem 0;
+  
+  
+  margin-bottom: -2rem;
+  margin-top: -2rem;
 }
 
 .hover-card {
   margin-top:32px;
   margin-bottom: 32px;
 
-  width: 14rem;
-  height: 9rem;
+  width: 8rem;
+  height: 8rem;
   overflow: hidden;
   transition: transform 150ms ease-in-out;
   border-radius: 10px;
@@ -103,10 +110,15 @@
   cursor: pointer;
   transition: background-color 0.3s ease;
   border-radius: 4px;
+  opacity: 0;
+  pointer-events: auto;
+  transition: opacity 0.3s;
 }
 
 .netflix-arrow:hover {
   background-color: rgba(0, 0, 0, 0.8);
+  visibility: visible;
+  opacity: 1;
 }
 
 .card-carousel-wrapper {

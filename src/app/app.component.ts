@@ -48,6 +48,31 @@ export class AppComponent {
         tecnologias: ['Node.js', 'Express', 'MongoDB']
       },
       {
+        id: 1,
+        title: 'Proyecto 1',
+        description: 'Lorem ipsum dolor sit amet...',
+        image: 'main-background.gif',
+        deploy: 'https://www.wikipedia.com',
+        repositorio: 'https://github.com/soySantiagoBruno/proyecto-1',
+        tecnologias: ['Angular', 'TypeScript', 'Bootstrap']
+      },{
+        id: 1,
+        title: 'Proyecto 1',
+        description: 'Lorem ipsum dolor sit amet...',
+        image: 'main-background.gif',
+        deploy: 'https://www.wikipedia.com',
+        repositorio: 'https://github.com/soySantiagoBruno/proyecto-1',
+        tecnologias: ['Angular', 'TypeScript', 'Bootstrap']
+      },{
+        id: 1,
+        title: 'Proyecto 1',
+        description: 'Lorem ipsum dolor sit amet...',
+        image: 'main-background.gif',
+        deploy: 'https://www.wikipedia.com',
+        repositorio: 'https://github.com/soySantiagoBruno/proyecto-1',
+        tecnologias: ['Angular', 'TypeScript', 'Bootstrap']
+      },
+      {
         id: 4,
         title: 'Proyecto 4',
         description: 'Descripción del proyecto 4',

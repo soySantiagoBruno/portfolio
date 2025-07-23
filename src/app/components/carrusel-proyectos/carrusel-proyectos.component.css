@@ -1,3 +1,6 @@
+#proyectos{
+    scroll-margin-top: 90px; /* altura de tu navbar */
+}
 
 .card-container {
   scrollbar-width: none !important;
@@ -103,10 +106,15 @@
   cursor: pointer;
   transition: background-color 0.3s ease;
   border-radius: 4px;
+  opacity: 0;
+  pointer-events: auto;
+  transition: opacity 0.3s;
 }
 
 .netflix-arrow:hover {
   background-color: rgba(0, 0, 0, 0.8);
+  visibility: visible;
+  opacity: 1;
 }
 
 .card-carousel-wrapper {
@@ -120,6 +128,7 @@
   left: 0;
   top: 50%;
   transform: translateY(-50%);
+  padding-left: 10px;
 }
 
 .right-arrow {
@@ -127,4 +136,5 @@
   right: 0;
   top: 50%;
   transform: translateY(-50%);
+  padding-right: 10px;
 }

@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg" 
+<nav #navbar class="navbar navbar-expand-lg" 
 [ngStyle]="backgroundStyle">
         <div class="container-fluid">
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -12,15 +12,19 @@
               </a>
   
               <li class="nav-item d-flex align-items-center">
-                <a class="nav-link active project-description" aria-current="page" href="#">Home</a>
+                <a class="nav-link active project-description" aria-current="page" href="#home">Home</a>
               </li>
               <li class="nav-item d-flex align-items-center">
-                <a class="nav-link" href="#">TV Shows</a>
+                <a class="nav-link" href="#proyectos">Proyectos</a>
               </li>
               <li class="nav-item d-flex align-items-center">
-                <a class="nav-link" href="#">Movies</a>              
+                <a class="nav-link" href="#skills">Skills</a>              
               </li>
-  
+              <li class="nav-item d-flex align-items-center">
+                <a class="nav-link" href="#contacto" (click)="abrirModal()">Contacto</a>              
+              </li>
+
+              
               <li class="nav-item ms-auto d-flex align-items-center">
                 <img src="https://avatars.githubusercontent.com/u/75147754?v=4" alt="Foto de perfil" class="rounded" height="34">
               </li>

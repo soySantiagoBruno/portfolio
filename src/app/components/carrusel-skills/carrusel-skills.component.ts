@@ -23,6 +23,38 @@ export class CarruselSkillsComponent {
 
 
   // Esto lo voy a inyectar en el futuro con un service
+  skills = [
+  {
+    category: 'Frontend',
+    items: [
+      { name: 'JavaScript', image: 'https://cdn.worldvectorlogo.com/logos/javascript-1.svg' },
+      { name: 'Angular', image: 'https://seeklogo.com/images/A/angular-icon-logo-5FC0C40EAC-seeklogo.com.png' },
+      { name: 'Node.js', image: 'https://cdn.worldvectorlogo.com/logos/nodejs-icon.svg' },
+      { name: 'HTML', image: 'https://cdn.worldvectorlogo.com/logos/html-1.svg' },
+      { name: 'CSS', image: 'https://cdn.worldvectorlogo.com/logos/css-3.svg' }
+    ]
+  },
+  {
+    category: 'Backend',
+    items: [
+      { name: 'Java', image: 'https://cdn.worldvectorlogo.com/logos/java.svg' },
+      { name: 'Spring Boot', image: 'https://cdn.worldvectorlogo.com/logos/spring-3.svg' },
+      { name: 'MySQL', image: 'https://cdn.worldvectorlogo.com/logos/mysql-6.svg' },
+      { name: 'PostgreSQL', image: 'https://cdn.worldvectorlogo.com/logos/postgresql.svg' }
+    ]
+  },
+  {
+    category: 'Tools',
+    items: [
+      { name: 'Git', image: 'https://cdn.worldvectorlogo.com/logos/git-icon.svg' },
+      { name: 'Postman', image: 'https://cdn.worldvectorlogo.com/logos/postman.svg' },
+      { name: 'Docker', image: 'https://cdn.worldvectorlogo.com/logos/docker-icon.svg' },
+      { name: 'Linux', image: 'https://cdn.worldvectorlogo.com/logos/linux-tux.svg' }
+    ]
+  }
+];
+
+
   techs = [
   {name:'Java', image: 'https://cdn.worldvectorlogo.com/logos/java.svg'},
   { name: 'Angular', image: 'https://seeklogo.com/images/A/angular-icon-logo-5FC0C40EAC-seeklogo.com.png' },
