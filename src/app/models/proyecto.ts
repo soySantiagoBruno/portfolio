@@ -6,7 +6,5 @@ export interface Proyecto {
   tecnologias: string[];
   repositorio: string;
   grupo: string;
-  titulo: string;
-  slug: string;
   deploy?: string;
 }

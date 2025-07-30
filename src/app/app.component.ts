@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { CarruselProyectosComponent } from './components/carrusel-proyectos/carrusel-proyectos.component';
 import { InfoGeneralComponent } from "./components/info-general/info-general.component";
@@ -6,6 +6,8 @@ import { ModalProyectoComponent } from "./components/carrusel-proyectos/modal-pr
 import { FooterComponent } from './components/footer/footer.component';
 import { CarruselSkillsComponent } from './components/carrusel-skills/carrusel-skills.component';
 import { GrupoProyectos } from './models/grupo-proyectos';
+import { Proyecto } from './models/proyecto';
+import { ProyectosService } from './services/proyectos.service';
 
 @Component({
   selector: 'app-root',
@@ -14,98 +16,61 @@ import { GrupoProyectos } from './models/grupo-proyectos';
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'portfolio';
 
-  // acá cargaría los proyectos desde un servicio, pero por ahora los dejo hardcodeados
-  gruposDeProyectos: GrupoProyectos[] = [
-  {
-    nombre: 'Proyectos principales',
-    proyectos: [
-      {
-        id: 1,
-        title: 'Proyecto 1',
-        description: 'Lorem ipsum dolor sit amet...',
-        image: 'main-background.gif',
-        deploy: 'https://www.wikipedia.com',
-        repositorio: 'https://github.com/soySantiagoBruno/proyecto-1',
-        tecnologias: ['Angular', 'TypeScript', 'Bootstrap']
-      },
-      {
-        id: 2,
-        title: 'Proyecto 2',
-        description: 'Descripción del proyecto 2',
-        image: 'main-background.gif',
-        repositorio: 'https://github.com/soySantiagoBruno/proyecto-2',
-        tecnologias: ['React', 'JavaScript', 'Material UI']
-      },
-      {
-        id: 3,
-        title: 'Proyecto 3',
-        description: 'Descripción del proyecto 3',
-        image: 'main-background.gif',
-        repositorio: 'https://github.com/soySantiagoBruno/proyecto-3',
-        tecnologias: ['Node.js', 'Express', 'MongoDB']
-      },
-      {
-        id: 1,
-        title: 'Proyecto 1',
-        description: 'Lorem ipsum dolor sit amet...',
-        image: 'main-background.gif',
-        deploy: 'https://www.wikipedia.com',
-        repositorio: 'https://github.com/soySantiagoBruno/proyecto-1',
-        tecnologias: ['Angular', 'TypeScript', 'Bootstrap']
-      },{
-        id: 1,
-        title: 'Proyecto 1',
-        description: 'Lorem ipsum dolor sit amet...',
-        image: 'main-background.gif',
-        deploy: 'https://www.wikipedia.com',
-        repositorio: 'https://github.com/soySantiagoBruno/proyecto-1',
-        tecnologias: ['Angular', 'TypeScript', 'Bootstrap']
-      },{
-        id: 1,
-        title: 'Proyecto 1',
-        description: 'Lorem ipsum dolor sit amet...',
-        image: 'main-background.gif',
-        deploy: 'https://www.wikipedia.com',
-        repositorio: 'https://github.com/soySantiagoBruno/proyecto-1',
-        tecnologias: ['Angular', 'TypeScript', 'Bootstrap']
-      },
-      {
-        id: 4,
-        title: 'Proyecto 4',
-        description: 'Descripción del proyecto 4',
-        image: 'main-background.gif',
-        repositorio: 'https://github.com/soySantiagoBruno/proyecto-4',
-        tecnologias: ['Flutter', 'Dart', 'Firebase']
-      }
-    ]
-  },
-  {
-    nombre: 'Podrían interesarte',
-    proyectos: [
-      {
-        id: 1,
-        title: 'Proyecto 1',
-        description: 'Otro proyecto menos destacado',
-        image: 'main-background.gif',
-        deploy: 'https://www.wikipedia.com',
-        repositorio: 'https://github.com/soySantiagoBruno/proyecto-1',
-        tecnologias: ['HTML', 'CSS', 'JavaScript']
-      },
-      {
-        id: 2,
-        title: 'Proyecto 2',
-        description: 'Otro proyecto secundario',
-        image: 'main-background.gif',
-        repositorio: 'https://github.com/soySantiagoBruno/proyecto-2',
-        tecnologias: ['PHP', 'MySQL']
-      }
-    ]
+  constructor(private proyectoService: ProyectosService){}
+  
+  ngOnInit(): void {
+    this.getProyectos();
   }
-];
 
+  proyectos: any[] = [];
+  gruposDeProyectos: GrupoProyectos[] = [];
+
+  // Uso el service
+  getProyectos() {
+    this.proyectoService.getProyectos().subscribe((data) => {
+      // Mapeo los proyectos
+      const proyectos = data.map((proyecto: any) => ({
+        id: proyecto.id,
+        title: proyecto.acf?.nombre,
+        image: proyecto.acf?.imagen,
+        description: proyecto.acf?.descripcion,
+        tecnologias: proyecto.acf?.tecnologia?.map((tec: any) => tec.name),
+        repositorio: proyecto.acf?.repositorio,
+        grupo: proyecto.acf?.['grupo-proyecto']?.name,
+        slug: proyecto.slug
+      }));
+
+      // Agrupo por 'grupo'
+      const grupos: { [key: string]: Proyecto[] } = {};
+      proyectos.forEach((proy: Proyecto) => {
+        const grupo = proy.grupo || 'Sin grupo';
+        if (!grupos[grupo]) {
+          grupos[grupo] = [];
+        }
+        grupos[grupo].push(proy);
+      });
+
+      // Armo el array final
+      this.gruposDeProyectos = Object.entries(grupos).map(([nombre, proyectos]) => ({
+        nombre,
+        proyectos
+      }));
+    });
+
+    console.log(this.proyectos);
+  }
+  
+  
+  
+  
+  
+  
+  
+
+  
 
 
 }
