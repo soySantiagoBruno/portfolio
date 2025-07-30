@@ -26,10 +26,9 @@ export class ModalProyectoComponent implements OnInit {
     '<iframe class="w-100"'
   );
 
-  // En caso de que también quieras asegurarte de incluir autoplay
-  iframeOriginal = iframeOriginal.replace(
+   iframeOriginal = iframeOriginal.replace(
     'feature=oembed',
-    'feature=oembed&autoplay=1'
+    'feature=oembed&autoplay=1&controls=0&modestbranding=1&rel=0'
   );
 }
 
