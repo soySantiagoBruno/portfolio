@@ -32,6 +32,7 @@ export class AppComponent implements OnInit {
   getProyectos() {
   this.proyectoService.getProyectosAgrupados().subscribe((gruposDeProyectos) => {
     this.gruposDeProyectos = gruposDeProyectos;
+    console.log(gruposDeProyectos);
   });
 }
   

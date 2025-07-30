@@ -26,6 +26,7 @@ export class ProyectosService {
           id: proyecto.id,
           title: proyecto.acf?.nombre,
           image: proyecto.acf?.imagen,
+          presentacion: proyecto.acf?.presentacion,
           description: proyecto.acf?.descripcion,
           tecnologias: proyecto.acf?.tecnologia?.map((tec: any) => tec.name),
           repositorio: proyecto.acf?.repositorio,

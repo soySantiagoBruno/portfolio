@@ -7,7 +7,10 @@
 </div> -->
 
 <div class="imagen-header">
-  <img [src]="proyecto?.image" class="img-fluid w-100 imagen-proyecto" alt="Imagen del proyecto">
+  
+  <div [innerHTML]="htmlIframe"></div>
+  
+  
   <div class="gradiente-sobre-imagen"></div>
   <div class="info">
     <h2 class="titulo-superpuesto">{{ proyecto?.title }}</h2>
