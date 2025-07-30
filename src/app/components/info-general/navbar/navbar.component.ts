@@ -1,7 +1,7 @@
 import { NgClass, NgStyle } from '@angular/common';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { MasInfoComponent } from '../../mas-info/mas-info.component';
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, Input } from '@angular/core';
 
 @Component({
   selector: 'app-navbar',
@@ -11,6 +11,9 @@ import { Component, HostListener } from '@angular/core';
   styleUrl: './navbar.component.css'
 })
 export class NavbarComponent {
+  @Input() persona: any; // <-- Agrega esto
+
+
   seccionActual = 'home';
   backgroundOpacity = 0;
 
