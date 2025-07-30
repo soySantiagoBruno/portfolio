@@ -8,13 +8,12 @@ import { WordpressPost } from '../models/wordpress-post';
 })
 export class ProyectosService {
 
-  private baseUrl: string = 'http://localhost:8881/wp-json/wp/v2/proyectos?acf_format=standard'
+  private baseUrl: string = 'http://localhost:8881/wp-json/wp/v2'
 
   constructor(private http: HttpClient) { }
 
-  getProyectos(): Observable<any[]> {
-    let respuesta = this.http.get<any[]>(`${this.baseUrl}`);
-    return respuesta
+  getPosts(): Observable<WordpressPost[]> {
+    return this.http.get<WordpressPost[]>(`${this.baseUrl}/posts`)
   }
   
 }
