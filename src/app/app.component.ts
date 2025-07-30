@@ -5,7 +5,6 @@ import { InfoGeneralComponent } from "./components/info-general/info-general.com
 import { ModalProyectoComponent } from "./components/carrusel-proyectos/modal-proyecto/modal-proyecto.component";
 import { FooterComponent } from './components/footer/footer.component';
 import { CarruselSkillsComponent } from './components/carrusel-skills/carrusel-skills.component';
-import { GrupoProyectos } from './models/grupo-proyectos';
 import { Proyecto } from './models/proyecto';
 import { ProyectosService } from './services/proyectos.service';
 
@@ -25,43 +24,16 @@ export class AppComponent implements OnInit {
     this.getProyectos();
   }
 
-  proyectos: any[] = [];
-  gruposDeProyectos: GrupoProyectos[] = [];
+  
+  gruposDeProyectos: any[] = [];
 
   // Uso el service
+  // ...existing code...
   getProyectos() {
-    this.proyectoService.getProyectos().subscribe((data) => {
-      // Mapeo los proyectos
-      const proyectos = data.map((proyecto: any) => ({
-        id: proyecto.id,
-        title: proyecto.acf?.nombre,
-        image: proyecto.acf?.imagen,
-        description: proyecto.acf?.descripcion,
-        tecnologias: proyecto.acf?.tecnologia?.map((tec: any) => tec.name),
-        repositorio: proyecto.acf?.repositorio,
-        grupo: proyecto.acf?.['grupo-proyecto']?.name,
-        slug: proyecto.slug
-      }));
-
-      // Agrupo por 'grupo'
-      const grupos: { [key: string]: Proyecto[] } = {};
-      proyectos.forEach((proy: Proyecto) => {
-        const grupo = proy.grupo || 'Sin grupo';
-        if (!grupos[grupo]) {
-          grupos[grupo] = [];
-        }
-        grupos[grupo].push(proy);
-      });
-
-      // Armo el array final
-      this.gruposDeProyectos = Object.entries(grupos).map(([nombre, proyectos]) => ({
-        nombre,
-        proyectos
-      }));
-    });
-
-    console.log(this.proyectos);
-  }
+  this.proyectoService.getProyectosAgrupados().subscribe((gruposDeProyectos) => {
+    this.gruposDeProyectos = gruposDeProyectos;
+  });
+}
   
   
   
