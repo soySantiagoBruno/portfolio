@@ -1,0 +1,47 @@
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { map, Observable } from 'rxjs';
+import { Skill } from '../models/skill';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class SkillsService {
+
+  private apiUrl = 'http://localhost:8881/wp-json/wp/v2/skills?acf_format=standard&_fields=title,acf';
+  
+  constructor(private http: HttpClient) {}
+
+
+  getSkills(): Observable<{ category: string; items: { name: string; image: string }[] }[]> {
+  return this.http.get<any[]>(this.apiUrl).pipe(
+    map((response: any[]) => {
+      const groups: { [key: string]: { name: string; image: string }[] } = {};
+
+      response.forEach(item => {
+        const grupo = item.acf?.['grupo-skill']?.name ?? '';
+        const name = item.title?.rendered ?? '';
+        const image = item.acf?.imagen ?? '';
+
+        if (!groups[grupo]) {
+          groups[grupo] = [];
+        }
+
+        groups[grupo].push({ name, image });
+      });
+
+      const order = ['frontend', 'backend', 'tools'];
+
+      return order
+        .filter(cat => groups[cat]) // solo los que existan
+        .map(cat => ({
+          category: cat,
+          items: groups[cat]
+        }));
+    })
+  );
+}
+
+
+
+}
