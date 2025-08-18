@@ -10,7 +10,7 @@ import { environment } from '../../environments/environment';
 })
 export class ProyectosService {
 
-  private baseUrl: string = `${environment.API_URL} /proyectos?acf_format=standard`;
+  private baseUrl: string = `${environment.API_URL}/proyectos?acf_format=standard`;
 
   constructor(private http: HttpClient) { }
 
