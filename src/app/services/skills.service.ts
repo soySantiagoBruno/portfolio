@@ -2,13 +2,14 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
 import { Skill } from '../models/skill';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SkillsService {
 
-  private apiUrl = 'http://localhost:8881/wp-json/wp/v2/skills?acf_format=standard&_fields=title,acf';
+  private apiUrl = `${environment.API_URL}/skills?acf_format=standard&_fields=title,acf`;
   
   constructor(private http: HttpClient) {}
 

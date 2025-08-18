@@ -5,6 +5,7 @@ import { MasInfoComponent } from '../mas-info/mas-info.component';
 import { NgIf, NgStyle } from '@angular/common';
 import { InformacionPersonalService } from '../../services/informacion-personal.service';
 import { Persona } from '../../models/persona';
+import { SkillsService } from '../../services/skills.service';
 
 
 @Component({
@@ -33,7 +34,10 @@ export class InfoGeneralComponent implements OnInit {
     imagenPortada: ''
   };
 
-  constructor(private modalService: NgbModal, private infoService: InformacionPersonalService) { }
+  constructor(
+    private modalService: NgbModal, 
+    private infoService: InformacionPersonalService
+  ) { }
 
   ngOnInit() {
     this.infoService.getInformacionPersonal().subscribe(persona => {

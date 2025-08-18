@@ -2,15 +2,21 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, switchMap, forkJoin, map, of } from 'rxjs';
 import { Persona } from '../models/persona';
+import { SkillsService } from './skills.service';
+import { environment } from '../../environments/environment';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class InformacionPersonalService {
 
-  private apiUrl = 'http://localhost:8881/wp-json/wp/v2';
+  private apiUrl = environment.API_URL;
 
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+    private skillsService: SkillsService
+  ) {}
 
   getInformacionPersonal(): Observable<Persona> {
   return this.http.get<any[]>(`${this.apiUrl}/informacion-personal`).pipe(
@@ -37,7 +43,6 @@ export class InformacionPersonalService {
 
       const info = data[0];
       const acf = info.acf;
-      const links = info._links;
 
       const persona: Persona = {
         nombre: acf.nombre,
@@ -56,41 +61,24 @@ export class InformacionPersonalService {
         tools: []
       };
 
-      const termLinks = links['acf:term'] as { href: string, taxonomy: string }[] || [];
-
-      const requests = {
-        frontend: [] as Observable<any>[],
-        backend: [] as Observable<any>[],
-        tools: [] as Observable<any>[],
-        imagen: this.http.get<any>(`${this.apiUrl}/media/${acf.foto}`),
-        imagenPortada: this.http.get<any>(`${this.apiUrl}/media/${acf.imagen_portada}`)
-      };
-
-      for (const term of termLinks) {
-        const request = this.http.get<any>(term.href);
-
-        if (term.taxonomy === 'tecnologia-frontend') {
-          requests.frontend.push(request);
-        } else if (term.taxonomy === 'tecnologia-backend') {
-          requests.backend.push(request);
-        } else if (term.taxonomy === 'tool') {
-          requests.tools.push(request);
-        }
-      }
-
+      // juntamos la info de imágenes y skills
       return forkJoin({
-        frontend: requests.frontend.length > 0 ? forkJoin(requests.frontend) : of([]),
-        backend: requests.backend.length > 0 ? forkJoin(requests.backend) : of([]),
-        tools: requests.tools.length > 0 ? forkJoin(requests.tools) : of([]),
-        foto: requests.imagen,
-        imagenPortada: requests.imagenPortada
+        skills: this.skillsService.getSkills(), // 👈 llamás a tu service
+        foto: this.http.get<any>(`${this.apiUrl}/media/${acf.foto}`),
+        imagenPortada: this.http.get<any>(`${this.apiUrl}/media/${acf.imagen_portada}`)
       }).pipe(
-        map(({ frontend, backend, tools, foto, imagenPortada }) => {
-          persona.tecnologiasFrontend = frontend.map(t => t.name);
-          persona.tecnologiasBackend = backend.map(t => t.name);
-          persona.tools = tools.map(t => t.name);
+        map(({ skills, foto, imagenPortada }) => {
+          const frontend = skills.find(s => s.category.toLowerCase() === 'frontend');
+          const backend = skills.find(s => s.category.toLowerCase() === 'backend');
+          const tools = skills.find(s => s.category.toLowerCase() === 'tools');
+
+          persona.tecnologiasFrontend = frontend?.items.map(i => i.name) || [];
+          persona.tecnologiasBackend = backend?.items.map(i => i.name) || [];
+          persona.tools = tools?.items.map(i => i.name) || [];
+
           persona.foto = foto?.source_url || '';
           persona.imagenPortada = imagenPortada?.source_url || '';
+
           return persona;
         })
       );

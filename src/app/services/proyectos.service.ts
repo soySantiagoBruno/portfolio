@@ -3,13 +3,14 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Proyecto } from '../models/proyecto';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProyectosService {
 
-  private baseUrl: string = 'http://localhost:8881/wp-json/wp/v2/proyectos?acf_format=standard'
+  private baseUrl: string = `${environment.API_URL} /proyectos?acf_format=standard`;
 
   constructor(private http: HttpClient) { }
 
