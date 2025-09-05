@@ -2,6 +2,7 @@ import { NgClass, NgFor } from '@angular/common';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { url } from 'node:inspector';
+import { SkillsService } from '../../services/skills.service';
 
 @Component({
   selector: 'app-carrusel-skills',
@@ -10,7 +11,24 @@ import { url } from 'node:inspector';
   templateUrl: './carrusel-skills.component.html',
   styleUrl: './carrusel-skills.component.css'
 })
-export class CarruselSkillsComponent {
+export class CarruselSkillsComponent implements OnInit {
+  skills: { category: string; items: { name: string; image: string }[] }[] = [];
+
+
+  constructor(private modalService: NgbModal, private skillsService: SkillsService) {}
+
+
+
+  ngOnInit(): void {
+      this.skillsService.getSkills().subscribe(
+        (skills) => {
+          console.log('Skills fetched:', skills);
+          this.skills = skills;
+        }
+      )
+    
+
+  }
 
   playHoverSound() {
     const audio = new Audio('/sounds/hover-sound.wav');
@@ -18,54 +36,10 @@ export class CarruselSkillsComponent {
     audio.play();
   }
 
-  constructor(private modalService: NgbModal) {}
 
 
 
-  // Esto lo voy a inyectar en el futuro con un service
-  skills = [
-  {
-    category: 'Frontend',
-    items: [
-      { name: 'JavaScript', image: 'https://cdn.worldvectorlogo.com/logos/javascript-1.svg' },
-      { name: 'Angular', image: 'https://seeklogo.com/images/A/angular-icon-logo-5FC0C40EAC-seeklogo.com.png' },
-      { name: 'Node.js', image: 'https://cdn.worldvectorlogo.com/logos/nodejs-icon.svg' },
-      { name: 'HTML', image: 'https://cdn.worldvectorlogo.com/logos/html-1.svg' },
-      { name: 'CSS', image: 'https://cdn.worldvectorlogo.com/logos/css-3.svg' }
-    ]
-  },
-  {
-    category: 'Backend',
-    items: [
-      { name: 'Java', image: 'https://cdn.worldvectorlogo.com/logos/java.svg' },
-      { name: 'Spring Boot', image: 'https://cdn.worldvectorlogo.com/logos/spring-3.svg' },
-      { name: 'MySQL', image: 'https://cdn.worldvectorlogo.com/logos/mysql-6.svg' },
-      { name: 'PostgreSQL', image: 'https://cdn.worldvectorlogo.com/logos/postgresql.svg' }
-    ]
-  },
-  {
-    category: 'Tools',
-    items: [
-      { name: 'Git', image: 'https://cdn.worldvectorlogo.com/logos/git-icon.svg' },
-      { name: 'Postman', image: 'https://cdn.worldvectorlogo.com/logos/postman.svg' },
-      { name: 'Docker', image: 'https://cdn.worldvectorlogo.com/logos/docker-icon.svg' },
-      { name: 'Linux', image: 'https://cdn.worldvectorlogo.com/logos/linux-tux.svg' }
-    ]
-  }
-];
 
-
-  techs = [
-  {name:'Java', image: 'https://cdn.worldvectorlogo.com/logos/java.svg'},
-  { name: 'Angular', image: 'https://seeklogo.com/images/A/angular-icon-logo-5FC0C40EAC-seeklogo.com.png' },
-  { name: 'Spring', image: 'https://cdn.worldvectorlogo.com/logos/spring-9.svg' },
-  { name: 'Node.js', image: 'https://cdn.worldvectorlogo.com/logos/nodejs-icon.svg' },
-  { name: 'PostgreSQL', image: 'https://cdn.worldvectorlogo.com/logos/postgresql.svg' },
-  { name: 'MySQL', image: 'https://cdn.worldvectorlogo.com/logos/mysql-6.svg' },
-  { name: 'Git', image: 'https://cdn.worldvectorlogo.com/logos/git-icon.svg' },
-  { name: 'Docker', image: 'https://cdn.worldvectorlogo.com/logos/docker-icon.svg' },
-  { name: 'Kubernetes', image: 'https://cdn.worldvectorlogo.com/logos/kubernetes-1.svg' }
-];
 
 
   @ViewChild('cardContainer') container!: ElementRef;
@@ -83,5 +57,13 @@ export class CarruselSkillsComponent {
     }
   }
 
-  
+  capitalize(text: string): string {
+  return text
+    .toLowerCase()
+    .split(' ')
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ');
+}
+
+
 }

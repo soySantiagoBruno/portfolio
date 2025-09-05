@@ -3,7 +3,7 @@
   <h2>Skills</h2>
 
   <ng-container *ngFor="let grupo of skills">
-    <h4 class=" mb-1" style="color:#7A7A73">{{ grupo.category }}</h4>
+    <h4 class=" mb-1" style="color:#7A7A73">{{ capitalize(grupo.category) }}</h4>
     <div class="card-carousel-wrapper position-relative">
       <!-- Flechas superpuestas -->
       <button (click)="scrollLeft()" class="netflix-arrow left-arrow">
@@ -38,7 +38,7 @@
           <div
             class="info-tarjeta justify-content-between align-items-center hover-text"
           >
-            <span class="fs-6">{{ skill.name }}</span>
+            <span class="fs-6">{{capitalize(skill.name) }}</span>
           </div>
         </div>
       </div>

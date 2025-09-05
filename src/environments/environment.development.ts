@@ -1,4 +1,4 @@
 export const environment = {
     production: true,
-    WP_DOMAIN: 'https://tu-dominio.com/wp-json/wp/v2'
+    API_URL: 'https://santiago-bruno.wasmer.app/wp-json/wp/v2'
   };

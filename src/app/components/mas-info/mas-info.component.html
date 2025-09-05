@@ -1,21 +1,21 @@
 
 <div class="imagen-header">
-  <img [src]="about?.image" class="img-fluid w-100 imagen-proyecto" alt="Imagen del proyecto">
+  <img [src]="persona?.imagenPortada" class="img-fluid w-100 imagen-proyecto" alt="Imagen del proyecto">
   <div class="gradiente-sobre-imagen"></div>
   <div class="info">
-    <h2 class="titulo-superpuesto">{{ about?.title }}</h2>
+    <h2 class="titulo-superpuesto">{{ persona?.title }}</h2>
 
     <div id="contacto" class="d-flex gap-2">
         
-        <a [href]="about?.linkedin" target="_blank" 
+        <a [href]="persona?.linkedin" target="_blank" 
          class="btn text-white px-3 py-1 m-0" style="background-color: #004182;"><i class="bi bi-linkedin"></i>  Linkedin
         </a>
         
-        <a [href]="about?.email" target="_blank" 
+        <a [href]="persona?.email" target="_blank" 
          class="btn text-white px-3 py-1 m-0" style="background-color: #c71610;"><i class="bi bi-envelope"></i>  Email
         </a>
 
-        <a [href]="about?.github" target="_blank" 
+        <a [href]="persona?.github" target="_blank" 
          class="btn text-white px-3 py-1 m-0" style="background-color: #212429;"><i class="bi bi-github"></i>  GitHub
         </a>
 
@@ -31,7 +31,7 @@
 
     <!-- Columna descripcion -->
     <div class="col-12 col-md-8">
-      <p>{{ about?.description }}</p>
+      <p>{{ persona?.descripcion }}</p>
     </div>
 
     <!-- Columna skills -->
@@ -41,7 +41,7 @@
         <p class="m-0"><strong>Frontend: </strong></p>
 
         <div class="d-flex flex-wrap gap-1">
-          <span *ngFor="let skill of about?.skills.frontend" class="badge bg-primary">
+          <span *ngFor="let skill of persona?.tecnologiasFrontend" class="badge bg-primary">
             {{ skill }}
           </span>
         </div>
@@ -53,7 +53,7 @@
         <p class="m-0"><strong>Backend: </strong></p>
 
         <div class="d-flex flex-wrap gap-1">
-          <span *ngFor="let skill of about?.skills.backend" class="badge bg-primary">
+          <span *ngFor="let skill of persona?.tecnologiasBackend" class="badge bg-primary">
             {{ skill }}
           </span>
         </div>
@@ -65,7 +65,7 @@
         <p class="m-0"><strong>Tools: </strong></p>
 
         <div class="d-flex flex-wrap gap-1">
-          <span *ngFor="let skill of about?.skills.tools" class="badge bg-primary">
+          <span *ngFor="let skill of persona?.tools" class="badge bg-primary">
             {{ skill }}
           </span>
         </div>

@@ -11,7 +11,7 @@
             <ul class="navbar-nav d-flex w-100">
               <!-- Imagen primero en móvil -->
               <li class="nav-item d-flex align-items-center perfil-movil">
-                <img src="https://avatars.githubusercontent.com/u/75147754?v=4" alt="Foto de perfil" class="rounded" height="34">
+                <img [src]="persona.foto" alt="Foto de perfil" class="rounded" height="34">
               </li>
               <li class="nav-item d-flex align-items-center">
                 <a class="nav-link project-description"
@@ -41,7 +41,7 @@
               </li>
               <!-- Imagen último en escritorio -->
               <li class="nav-item ms-auto d-flex align-items-center perfil-escritorio">
-                <img src="https://avatars.githubusercontent.com/u/75147754?v=4" alt="Foto de perfil" class="rounded" height="34">
+                <img [src]="persona.foto" alt="Foto de perfil" class="rounded" height="34">
               </li>
   
               <li class="nav-item dropdown">
