@@ -61,6 +61,9 @@
   transform-origin: center center;
 }
 
+.card-img-container{
+  background: White;
+}
 
 .card-img-container.cover {
   width: 100%;
