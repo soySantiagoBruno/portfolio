@@ -31,7 +31,7 @@ export class SkillsService {
         groups[grupo].push({ name, image });
       });
 
-      const order = ['frontend', 'backend', 'tools'];
+      const order = ['Frontend', 'Backend', 'Tools'];
 
       return order
         .filter(cat => groups[cat]) // solo los que existan
