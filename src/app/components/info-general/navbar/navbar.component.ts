@@ -2,6 +2,7 @@ import { NgClass, NgStyle } from '@angular/common';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { MasInfoComponent } from '../../mas-info/mas-info.component';
 import { Component, HostListener, Input } from '@angular/core';
+import { InformacionPersonalService } from '../../../services/informacion-personal.service';
 
 @Component({
   selector: 'app-navbar',
@@ -11,6 +12,7 @@ import { Component, HostListener, Input } from '@angular/core';
   styleUrl: './navbar.component.css'
 })
 export class NavbarComponent {
+  
   @Input() persona: any; // <-- Agrega esto
 
 
@@ -47,7 +49,16 @@ export class NavbarComponent {
     this.seccionActual = seccion;
   }
 
-  constructor(private modalService: NgbModal) {}
+  constructor(
+    private modalService: NgbModal,    
+    private infoService: InformacionPersonalService
+  ) {}
+
+  ngOnInit() {
+    this.infoService.getInformacionPersonal().subscribe(persona => {
+      this.persona = persona;
+    });
+  }
 
   abrirModal() {
     const modalRef = this.modalService.open(MasInfoComponent, {
@@ -55,5 +66,6 @@ export class NavbarComponent {
       size: 'lg',
       scrollable: true
     });
+    modalRef.componentInstance.persona = this.persona;
   }
 }
