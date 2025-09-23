@@ -32,7 +32,6 @@ export class AppComponent {
   getProyectos() {
   this.proyectoService.getProyectosAgrupados().subscribe((gruposDeProyectos) => {
     this.gruposDeProyectos = gruposDeProyectos;
-    console.log(gruposDeProyectos);
   });
 }
   

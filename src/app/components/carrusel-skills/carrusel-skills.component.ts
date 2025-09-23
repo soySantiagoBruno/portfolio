@@ -22,7 +22,6 @@ export class CarruselSkillsComponent implements OnInit {
   ngOnInit(): void {
       this.skillsService.getSkills().subscribe(
         (skills) => {
-          console.log('Skills fetched:', skills);
           this.skills = skills;
         }
       )
