@@ -29,7 +29,7 @@ export class ProyectosService {
           image: proyecto.acf?.imagen,
           presentacion: proyecto.acf?.presentacion,
           description: proyecto.acf?.descripcion,
-          tecnologias: proyecto.acf?.tecnologia?.map((tec: any) => tec.name),
+          tecnologias: proyecto.acf?.tools?.map((tec: any) => tec.name),
           repositorio: proyecto.acf?.repositorio,
           grupo: proyecto.acf?.['grupo-proyecto']?.name,
           slug: proyecto.slug
