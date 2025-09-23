@@ -46,7 +46,7 @@
         >
           <span class="fs-6">{{ proyecto.title }}</span>
           <div class="d-flex gap-2">
-            <a style="text-decoration: none; color:white" [href]="proyecto?.deploy" target="_blank">
+            <a *ngIf="proyecto?.deploy" style="text-decoration: none; color:white" [href]="proyecto?.deploy" target="_blank">
               <i class="bi bi-play-circle-fill fs-5"></i>
             </a>
             <i class="bi bi-arrow-down-square-fill fs-5"></i>

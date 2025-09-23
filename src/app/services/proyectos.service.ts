@@ -31,6 +31,7 @@ export class ProyectosService {
           description: proyecto.acf?.descripcion,
           tecnologias: proyecto.acf?.tools?.map((tec: any) => tec.name),
           repositorio: proyecto.acf?.repositorio,
+          deploy: proyecto.acf?.deploy,
           grupo: proyecto.acf?.['grupo-proyecto']?.name,
           slug: proyecto.slug
         }));

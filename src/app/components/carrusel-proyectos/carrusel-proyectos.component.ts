@@ -1,21 +1,25 @@
 import { NgClass, NgFor, NgIf } from '@angular/common';
-import { Component, ElementRef, Input, ViewChild } from '@angular/core';
+import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ModalProyectoComponent } from './modal-proyecto/modal-proyecto.component';
 
 @Component({
   selector: 'app-carrusel-proyectos',
   standalone: true,
-  imports: [NgFor, NgClass],
+  imports: [NgFor, NgClass, NgIf],
   templateUrl: './carrusel-proyectos.component.html',
   styleUrl: './carrusel-proyectos.component.css'
 })
-export class CarruselProyectosComponent {
+export class CarruselProyectosComponent implements OnInit {
 
   constructor(private modalService: NgbModal) {}
 
   // Paso los proyectos como input para poder reutilizar el componente
   @Input() gruposDeProyectos: any;
+  
+  ngOnInit() :void{
+    console.log(this.gruposDeProyectos);
+   }
 
   @ViewChild('cardContainer') container!: ElementRef;
   private scrollAmount = 300;
