@@ -31,7 +31,8 @@ export class SkillsService {
         groups[grupo].push({ name, image });
       });
 
-      const order = ['Frontend', 'Backend', 'Tools'];
+      // Esto va a ordenar las categorías de las skills
+      const order = ['Lenguajes','Frameworks y Librerías','Bases de Datos', 'Tools'];
 
       return order
         .filter(cat => groups[cat]) // solo los que existan
