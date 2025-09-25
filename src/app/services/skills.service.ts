@@ -9,7 +9,9 @@ import { environment } from '../../environments/environment';
 })
 export class SkillsService {
 
-  private apiUrl = `${environment.API_URL}/skills?acf_format=standard&_fields=title,acf`;
+  private apiUrl = `${environment.API_URL}/skills?acf_format=standard&_fields=title,acf&per_page=50#`;
+  // Trae hasta 50 skills
+
   
   constructor(private http: HttpClient) {}
 
