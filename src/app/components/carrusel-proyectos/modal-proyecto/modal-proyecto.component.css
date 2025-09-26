@@ -6,6 +6,7 @@
 .imagen-header {
   position: relative;
   overflow: hidden;
+  min-height: fit-content;
 }
 
 .imagen-proyecto {
