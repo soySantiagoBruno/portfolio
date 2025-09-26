@@ -27,8 +27,9 @@ export class InfoGeneralComponent implements OnInit {
     linkedin: '',
     github: '',
     idiomas: '',
-    tecnologiasFrontend: [],
-    tecnologiasBackend: [],
+    lenguajes: [],
+    frameworksYLibrerias: [],
+    basesDeDatos: [],
     tools: [],
     foto: '',
     imagenPortada: ''

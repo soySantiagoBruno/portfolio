@@ -34,8 +34,9 @@ export class InformacionPersonalService {
           idiomas: '',
           foto: '',
           imagenPortada: '',
-          tecnologiasFrontend: [],
-          tecnologiasBackend: [],
+          lenguajes: [],
+          frameworksYLibrerias: [],
+          basesDeDatos: [],
           tools: []
         };
         return of(defaultPersona);
@@ -56,29 +57,33 @@ export class InformacionPersonalService {
         idiomas: acf.idiomas,
         foto: '',
         imagenPortada: '',
-        tecnologiasFrontend: [],
-        tecnologiasBackend: [],
+        lenguajes: [],
+        frameworksYLibrerias: [],
+        basesDeDatos: [],
         tools: []
       };
 
       // juntamos la info de imágenes y skills
       return forkJoin({
-        skills: this.skillsService.getSkills(), // 👈 llamás a tu service
+        skills: this.skillsService.getSkills(),
+        
         foto: this.http.get<any>(`${this.apiUrl}/media/${acf.foto}`),
         imagenPortada: this.http.get<any>(`${this.apiUrl}/media/${acf.imagen_portada}`)
       }).pipe(
         map(({ skills, foto, imagenPortada }) => {
-          const frontend = skills.find(s => s.category.toLowerCase() === 'frontend');
-          const backend = skills.find(s => s.category.toLowerCase() === 'backend');
+          const lenguajes = skills.find(s => s.category.toLowerCase() === 'lenguajes');
+          const frameworksYLibrerias = skills.find(s => s.category.toLowerCase() === 'frameworks y librerías');
+          const basesDeDatos = skills.find(s => s.category.toLowerCase() === 'bases de datos');
           const tools = skills.find(s => s.category.toLowerCase() === 'tools');
 
-          persona.tecnologiasFrontend = frontend?.items.map(i => i.name) || [];
-          persona.tecnologiasBackend = backend?.items.map(i => i.name) || [];
+          persona.lenguajes = lenguajes?.items.map(i => i.name) || [];
+          persona.frameworksYLibrerias = frameworksYLibrerias?.items.map(i => i.name) || [];
+          persona.basesDeDatos = basesDeDatos?.items.map(i => i.name) || [];
           persona.tools = tools?.items.map(i => i.name) || [];
 
           persona.foto = foto?.source_url || '';
           persona.imagenPortada = imagenPortada?.source_url || '';
-
+          console.log(skills);
           return persona;
         })
       );

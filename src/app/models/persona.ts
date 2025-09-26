@@ -8,8 +8,9 @@ export interface Persona {
   linkedin: string;
   github: string;
   idiomas: string;
-  tecnologiasFrontend: string[];
-  tecnologiasBackend: string[];
+  lenguajes: string[];
+  frameworksYLibrerias: string[];
+  basesDeDatos: string[];
   tools: string[];
   foto: string;
   imagenPortada: string;

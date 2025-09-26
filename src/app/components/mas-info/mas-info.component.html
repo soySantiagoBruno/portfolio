@@ -38,22 +38,34 @@
     <div class="col-12 col-md-4">
       <!-- frontend -->
       <div class="mb-3">
-        <p class="m-0"><strong>Frontend: </strong></p>
+        <p class="m-0"><strong>Lenguajes: </strong></p>
 
         <div class="d-flex flex-wrap gap-1">
-          <span *ngFor="let skill of persona?.tecnologiasFrontend" class="badge bg-primary">
+          <span *ngFor="let skill of persona?.lenguajes" class="badge bg-primary">
             {{ skill }}
           </span>
         </div>
 
       </div>
 
-      <!-- backend -->
+      <!-- Frameworks y Librerías -->
       <div class="mb-3">
-        <p class="m-0"><strong>Backend: </strong></p>
+        <p class="m-0"><strong>Frameworks y Librerías: </strong></p>
 
         <div class="d-flex flex-wrap gap-1">
-          <span *ngFor="let skill of persona?.tecnologiasBackend" class="badge bg-primary">
+          <span *ngFor="let skill of persona?.frameworksYLibrerias" class="badge bg-primary">
+            {{ skill }}
+          </span>
+        </div>
+
+      </div>
+
+      <!-- Base de datos -->
+      <div class="mb-3">
+        <p class="m-0"><strong>Base de datos: </strong></p>
+
+        <div class="d-flex flex-wrap gap-1">
+          <span *ngFor="let skill of persona?.basesDeDatos" class="badge bg-primary">
             {{ skill }}
           </span>
         </div>
