@@ -4,31 +4,33 @@
 <div class="modal-body bg-netflix">
   <div class="row">
 
-    <div class="info">
-    <h2 class="titulo-superpuesto">{{ persona?.title }}</h2>
-
-    <div id="contacto" class="d-flex gap-2">
-        
-        <a [href]="persona?.linkedin" target="_blank" 
-         class="btn text-white px-3 py-1 m-0" style="background-color: #004182;"><i class="bi bi-linkedin"></i>  Linkedin
-        </a>
-        
-        <a [href]="persona?.email" target="_blank" 
-         class="btn text-white px-3 py-1 m-0" style="background-color: #c71610;"><i class="bi bi-envelope"></i>  Email
-        </a>
-
-        <a [href]="persona?.github" target="_blank" 
-         class="btn text-white px-3 py-1 m-0" style="background-color: #212429;"><i class="bi bi-github"></i>  GitHub
-        </a>
-
-
-    </div>
-
-
-  </div>
+    
 
     <!-- Columna descripcion -->
     <div class="col-12 col-md-8">
+      <div class="info">
+      <h2 class="titulo-superpuesto">{{ persona?.title }}</h2>
+
+      <div id="contacto" class="d-flex gap-2">
+          
+          <a [href]="persona?.linkedin" target="_blank" 
+          class="btn text-white px-3 py-1 m-0" style="background-color: #004182;"><i class="bi bi-linkedin"></i>  Linkedin
+          </a>
+          
+          <a [href]="persona?.email" target="_blank" 
+          class="btn text-white px-3 py-1 m-0" style="background-color: #c71610;"><i class="bi bi-envelope"></i>  Email
+          </a>
+
+          <a [href]="persona?.github" target="_blank" 
+          class="btn text-white px-3 py-1 m-0" style="background-color: #212429;"><i class="bi bi-github"></i>  GitHub
+          </a>
+
+
+      </div>
+
+
+    </div>
+    
       <p>{{ persona?.descripcion }}</p>
     </div>
 
