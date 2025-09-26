@@ -83,7 +83,7 @@ export class InformacionPersonalService {
 
           persona.foto = foto?.source_url || '';
           persona.imagenPortada = imagenPortada?.source_url || '';
-          console.log(skills);
+
           return persona;
         })
       );

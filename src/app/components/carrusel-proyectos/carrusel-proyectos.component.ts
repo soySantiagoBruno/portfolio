@@ -10,16 +10,13 @@ import { ModalProyectoComponent } from './modal-proyecto/modal-proyecto.componen
   templateUrl: './carrusel-proyectos.component.html',
   styleUrl: './carrusel-proyectos.component.css'
 })
-export class CarruselProyectosComponent implements OnInit {
+export class CarruselProyectosComponent {
 
   constructor(private modalService: NgbModal) {}
 
   // Paso los proyectos como input para poder reutilizar el componente
   @Input() gruposDeProyectos: any;
   
-  ngOnInit() :void{
-    console.log(this.gruposDeProyectos);
-   }
 
   @ViewChild('cardContainer') container!: ElementRef;
   private scrollAmount = 300;
