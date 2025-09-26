@@ -1,27 +1,34 @@
-# Portfolio
+# 🎬 Portfolio Web – Angular + WordPress Headless CMS  
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.0.4.
+Este es mi **portfolio personal** desarrollado en **Angular**, con una interfaz inspirada en **Netflix**, que busca mostrar mis proyectos, habilidades y experiencia de manera atractiva, moderna y dinámica.  
 
-## Development server
+El sitio consume datos desde un **WordPress configurado como Headless CMS**, utilizando **Advanced Custom Fields (ACF)** para estructurar y personalizar la información (proyectos, habilidades, descripciones, imágenes, etc.). Gracias a esto, la carga de contenido es **totalmente dinámica**, permitiéndome administrar todo desde el panel de WordPress sin tener que modificar el código del frontend.  
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+---
 
-## Code scaffolding
+## ✨ Características principales  
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- 🎨 **UI estilo Netflix**: carruseles, tarjetas y animaciones interactivas.  
+- 🔗 **Headless CMS con WordPress + ACF**: integración vía API REST.  
+- ⚡ **Frontend en Angular**: modular, responsivo y con buenas prácticas.  
+- 🌐 **Despliegue en Netlify**: rápido, seguro y accesible desde cualquier dispositivo.  
+- 📱 **Responsive Design**: adaptable a desktop, tablets y móviles.  
 
-## Build
+---
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## 🛠️ Tecnologías utilizadas  
 
-## Running unit tests
+- **Frontend**: Angular, TypeScript, HTML5, CSS3, Bootstrap  
+- **Backend/CMS**: WordPress (Headless CMS) + ACF (Advanced Custom Fields)  
+- **Infraestructura**: Netlify (Hosting + Deploy continuo desde GitHub)  
+- **Herramientas**: Git, API REST, Node.js  
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+---
 
-## Running end-to-end tests
+## 🚀 Instalación y ejecución local  
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+```bash
+git clone https://github.com/soySantiagoBruno/portfolio
+cd portfolio
+npm install
+ng serve
