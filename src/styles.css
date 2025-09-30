@@ -44,3 +44,20 @@ p, .project-description {
 .btn-netflix:hover {
   background-color: #f40612;
 }
+
+
+
+
+@media (min-width: 576px) {
+  .modal-personalizado .modal-dialog {
+    margin: 0.25rem auto var(--bs-modal-margin);
+  }
+}
+
+@media (min-width: 576px) {
+    .modal {
+        --bs-modal-margin: 0.5rem !important;
+        --bs-modal-box-shadow: var(--bs-box-shadow);
+    }
+}
+
